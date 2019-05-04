@@ -11,7 +11,7 @@ pipeline {
       stage('Ansible Init') {
             steps {
                 script {
-                    def tfHome = tool name: 'Ansible'
+                    def tfHome = tool name: 'ansible'
                     env.PATH = "${/usr/bin/ansible}:${env.PATH}"
                     sh 'ansible --version'
                 }
