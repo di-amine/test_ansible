@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     def tfHome = tool name: 'Ansible'
-                    env.PATH = "${tfHome}:${/usr/bin/ansible}"
+                    env.PATH = "${tfHome}:${env.PATH}"
                     sh 'ansible --version'
                 }
             }
