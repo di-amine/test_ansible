@@ -1,5 +1,7 @@
 pipeline {
-    agent vagrant
+    agent {
+      label 'Vagrant'
+    }
     stages {
       stage('checkout') {
             steps {
