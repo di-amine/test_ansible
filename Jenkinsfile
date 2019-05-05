@@ -24,6 +24,7 @@ pipeline {
         stage('Ansible playbook') {
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'InstalApache.yml') 
+                ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'copy_mySSHKey.yml') 
             }
         }
     }
