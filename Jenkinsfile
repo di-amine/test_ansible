@@ -12,12 +12,18 @@ pipeline {
                git branch: 'features/mohamed_didi', url: 'https://github.com/DevOps2019s1/tp-ansible.git'
             }
         }       
-        stage('Ansible Init') {
+        stage('Ansible tool') {
             steps {
                 script {
                     def tfHome = tool name: 'Ansible'
                     env.PATH = "${tfHome}:${env.PATH}"
                     sh 'ansible --version'
+                }
+            }
+        }
+        stage('Ansible playbook') {
+            steps {
+                ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'InstalApache.yml') 
                 }
             }
         }
