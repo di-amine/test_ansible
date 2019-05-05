@@ -5,6 +5,7 @@ pipeline {
     parameters { 
         string(name: 'username', defaultValue: 'devops', description: 'username')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'A secret password')
+        choice( choices: ['Install Apache', 'Install MariaDb'], discription: '', name: 'install_choice:')
     }
     stages {
       stage('checkout') {
@@ -22,11 +23,17 @@ pipeline {
             }
         }
         stage('Ansible playbook1') {
+            when {
+                expression { params.install_choice == 'Install Apache' }
+            }
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'InstalApache.yml') 
             }
         }
         stage('Ansible playbook2') {
+            when {
+                expression { params.install_choice == 'Install MariaDb' }
+            }
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'mariadb.yml') 
             }
