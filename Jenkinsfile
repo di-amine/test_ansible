@@ -5,7 +5,7 @@ pipeline {
     parameters { 
         string(name: 'username', defaultValue: 'devops', description: 'username')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'A secret password')
-        choice( choices: ['Install Apache', 'Install MariaDb'], discription: '', name: 'install_choice:')
+        choice( choices: ['Install Apache', 'Install MariaDb'], description: '', name: 'install_choice:')
     }
     stages {
       stage('checkout') {
