@@ -9,7 +9,7 @@ pipeline {
     stages {
       stage('checkout') {
             steps {
-               git branch: 'features/mohamed_didi', url: 'https://github.com/DevOps2019s1/tp-ansible.git'
+               git branch: 'master', url: 'https://github.com/DevOps2019s1/tp-ansible.git'
             }
         }       
         stage('Ansible Init') {
