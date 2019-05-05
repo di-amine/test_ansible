@@ -24,7 +24,6 @@ pipeline {
         stage('Ansible playbook') {
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'InstalApache.yml') 
-                }
             }
         }
     }
