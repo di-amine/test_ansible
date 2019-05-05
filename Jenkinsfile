@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Ansible playbook1') {
             when {
-                expression { params.install_choice == 'Install Apache' }
+                echo "${install_choice}" == 'Install Apache'
             }
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'InstalApache.yml') 
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Ansible playbook2') {
             when {
-                expression { params.install_choice == 'Install MariaDb' }
+                echo "${install_choice}" == 'Install MariaDb'
             }
             steps {
                 ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'mariadb.yml') 
