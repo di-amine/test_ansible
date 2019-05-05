@@ -9,7 +9,7 @@ pipeline {
     stages {
       stage('checkout') {
             steps {
-               git branch: 'features/mohamed_didi', url: 'https://github.com/DevOps2019s1/tp-ansible.git'
+               git branch: 'dev', credentialsId: '70ecb8f7-b239-431a-af07-c9049a10d012', url: 'https://github.com/di-amine/test_ansible.git'
             }
         }       
         stage('Ansible tool') {
