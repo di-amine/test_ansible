@@ -1,0 +1,13 @@
+- name: install mariadb
+  become_user: root
+  hosts: db
+  become: yes
+  
+  tasks:
+    - name: Install Mariadb.
+      yum: 
+        name: "mariadb-server, mariadb" 
+        state: present
+           
+    - name: Make sure Mariadb is started now and at boot.
+      service: name=mariadb state=started enabled=yes

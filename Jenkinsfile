@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Ansible playbook2') {
             steps {
-                ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'copy_mySSHKey.yml') 
+                ansiblePlaybook(credentialsId: 'private_key', inventory: 'hosts.ini', playbook: 'mariadb.yml') 
             }
         }
     }
